@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "car.h"
+#import "Person.h"
 
 int main(int argc, const char * argv[])
 {
@@ -21,6 +21,11 @@ int main(int argc, const char * argv[])
     
     Person *ptr = nil;
     NSLog(@"%f\n",[ptr bmi]);
+    
+    ptr = [[Person alloc]initWithAge:23 Height:165 Gender:male];
+    [ptr shortenHeightBy:30.2];
+    NSLog(@"%f\n",[ptr height]);
+    
     
     
     return 0;

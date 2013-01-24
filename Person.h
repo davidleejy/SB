@@ -21,5 +21,6 @@ typedef enum {
 
 - (id) initWithAge:(int)a Height:(double)h Gender:(Gender)g;
 - (double) bmi;
+- (void) shortenHeightBy:(double)x;
 
 @end

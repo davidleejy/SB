@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 blargh. All rights reserved.
 //
 
-#import "car.h"
+#import "Person.h"
 
 @interface Person()
 
@@ -33,5 +33,16 @@
     return _height*_yearsOld;
 }
 
+- (void) shortenHeightBy:(double)x {
+    _height -= x;
+}
+
+// Not in header file.
+- (void) throwIntoOblivion {
+    if (self) {
+        _yearsOld = -99;
+        _height = -99.9;
+    }
+}
 
 @end
