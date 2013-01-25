@@ -8,23 +8,29 @@
 
 #import "Person.h"
 
-@interface Person()
+@interface Person ()
 
 @property int yearsOld;
 @property double height;
 @property Gender gender;
+@property NSString *name;
 
 @end
 
 
 @implementation Person
 
+@synthesize yearsOld = _yearsOld;
+@synthesize height = _height;
+@synthesize gender = _gender;
+@synthesize name = _name;
 
-- (id) initWithAge:(int)a Height:(double)h Gender:(Gender)g {
+- (id) initWithAge:(int)a Height:(double)h Gender:(Gender)g Name:(NSString*)n {
     if (self = [super init]) {
         _yearsOld = a;
         _height = h;
         _gender = g;
+        _name = [[NSString alloc] initWithString:n];
     }
     return self;
 }
@@ -35,6 +41,19 @@
 
 - (void) shortenHeightBy:(double)x {
     _height -= x;
+}
+
+- (int) getIdxInNameWhereGotSubString:(NSString*)queryStr{
+    
+    NSRange range;
+    
+    range = [_name rangeOfString:queryStr];
+    
+    if (range.location == NSNotFound) {
+        return -1;
+    }
+    else
+        return range.location;
 }
 
 // Not in header file.
